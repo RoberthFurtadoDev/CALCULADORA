@@ -38,28 +38,40 @@
     </div>
 </body>
 <script>
+let deveLimparDisplay = false;
 
-function adicionarCaracter(caracter){
-    const valorDisplay = document.querySelector(".display").value
+function adicionarCaracter(caracter) {
+    const display = document.querySelector(".display");
+    let valorDisplay = display.value;
 
-    document.querySelector(".display").value = valorDisplay + caracter
+    if (deveLimparDisplay) {
+        if ('+-*/'.includes(caracter)) {
+            // Mantém o resultado e adiciona o operador
+            deveLimparDisplay = false;
+        } else {
+            // Limpa o display para novo número
+            valorDisplay = '';
+            deveLimparDisplay = false;
+        }
+    }
+
+    display.value = valorDisplay + caracter;
 }
 
-function limpaTela(){
-    document.querySelector(".display").value = ""
+function limpaTela() {
+    document.querySelector(".display").value = "";
+    deveLimparDisplay = false;
 }
 
-function calcular(){
-    const valorDisplay = document.querySelector(".display").value
-
-    document.querySelector(".display").value = eval(valorDisplay)
+function calcular() {
+    const valorDisplay = document.querySelector(".display").value;
+    document.querySelector(".display").value = eval(valorDisplay);
+    deveLimparDisplay = true;
 }
 
-function inverterNumero(){
-    const valorDisplay = document.querySelector(".display").value
-
-    document.querySelector(".display").value = valorDisplay * -1
+function inverterNumero() {
+    const display = document.querySelector(".display");
+    display.value = display.value * -1;
 }
-
 </script>
 </html>
