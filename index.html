@@ -46,10 +46,8 @@ function adicionarCaracter(caracter) {
 
     if (deveLimparDisplay) {
         if ('+-*/'.includes(caracter)) {
-            // Mantém o resultado e adiciona o operador
             deveLimparDisplay = false;
         } else {
-            // Limpa o display para novo número
             valorDisplay = '';
             deveLimparDisplay = false;
         }
